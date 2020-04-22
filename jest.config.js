@@ -2,6 +2,7 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.ts',
+    'src/**/*.tsx',
     '!src/**/*.test.ts',
     '!src/**/*.d.ts',
     '!src/fsbl.ts',

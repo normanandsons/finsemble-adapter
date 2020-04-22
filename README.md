@@ -60,4 +60,59 @@ A shortcut method on top of `catchIntent` for catching a `ViewInstrument` intent
 
 ## Framework Adapters
 
-Work-in-progress.
+### React
+
+We provide a React adapter to make waiting for FSBL to be ready and for the FSBL header to be injected straightforward. As with the above methods, this is all "safe" to use when running in a browser - it will have no effect.
+
+Since this library may be used without React, you will need to import the adapter file directly, it is not exported with the main module.
+
+```tsx
+import React from 'react';
+import { FSBLLoader } from 'fsbl-adapter/framework-adapters/react';
+
+export const DemoMinimal: React.FC = () => {
+  return (
+    <FSBLLoader>
+      <div>Your App Goes Here</div>
+    </FSBLLoader>
+  );
+};
+
+export const DemoStandard: React.FC = () => {
+  return (
+    <FSBLLoader
+      fallback={<div>LOADING</div>}
+      onReady={() => {
+        // tslint:disable-next-line: no-console
+        console.log(
+          'Finsemble is ready, but in this case we cannot be sure about the header'
+        );
+      }}
+      forceResize={false}
+      waitForChromeHeader={false}
+    >
+      <div>Your App Goes Here</div>
+    </FSBLLoader>
+  );
+};
+
+export const DemoForTesting: React.FC = () => {
+  return (
+    <FSBLLoader
+      fallback={<div>LOADING</div>}
+      onReady={() => {
+        // tslint:disable-next-line: no-console
+        console.log(
+          'You can override how the component looks for finsemble, or how it looks got the header'
+        );
+      }}
+      forceResize={false}
+      waitForChromeHeader={false}
+      isFinsembleAvailable={() => 'FSBL' in window}
+      finsembleHeaderSelector="#FSBLHeader"
+    >
+      <div>Your App Goes Here</div>
+    </FSBLLoader>
+  );
+};
+```
