@@ -8,5 +8,5 @@ export function broadcastInstrument(instrument: FDC3Instrument) {
 export function subscribeInstrument(
   callback: (payload: FDC3Instrument) => void
 ) {
-  return catchIntent<FDC3Instrument>(FDC3IntentType.ViewInstrument, callback);
+  return catchIntent(FDC3IntentType.ViewInstrument, callback);
 }
