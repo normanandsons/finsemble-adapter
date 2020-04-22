@@ -2,7 +2,7 @@
   "name": "finsemble-adapter",
   "version": "0.1.0",
   "description": "Finsemble Adapter for HTML5 client applications",
-  "main": "build/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "npm-run-all -s build:clean build:compile",
     "build:clean": "rimraf dist/",
