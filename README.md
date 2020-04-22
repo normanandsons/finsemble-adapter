@@ -16,16 +16,16 @@ npm install finsemble-adapter
 
 Import the core functions into your project:
 
-```js
-import { broadcastFDC3 } from "finsemble-adapter";
+```ts
+import { raiseIntent, FDC3IntentType, FDC3Instrument } from 'finsemble-adapter';
 
-const instrument = {
+const instrument: FDC3Instrument = {
   id: {
-    ric: "FTSE",
+    ric: 'FTSE',
   },
   meta: {
-    maturity: "2021-01-07",
+    maturity: '2021-01-07',
   },
 };
-broadcastFDC3("showInstrument", { instrument });
+raiseIntent(FDC3IntentType.ViewInstrument, instrument);
 ```
