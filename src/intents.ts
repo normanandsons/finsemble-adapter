@@ -7,6 +7,8 @@ import {
   FDC3Organization,
 } from './contexts';
 
+import { InternalFSBL } from './fsbl';
+
 export enum FDC3IntentType {
   StartCall = 'StartCall',
   StartChat = 'StartChat',
@@ -54,8 +56,11 @@ export function raiseIntent<T>(
   if (applicationName) {
     throw new TypeError('Specifying applicationName is not supported yet');
   }
-  if (FSBL) {
-    FSBL.Clients.LinkerClient.publish({ dataType: intentType, data: payload });
+  if (InternalFSBL) {
+    InternalFSBL.Clients.LinkerClient.publish({
+      dataType: intentType,
+      data: payload,
+    });
   }
 }
 
@@ -71,7 +76,7 @@ export function catchIntent<T>(
   intentType: FDC3IntentType,
   callback: (payload: T) => void
 ) {
-  if (FSBL) {
-    FSBL.Clients.LinkerClient.subscribe(intentType, callback);
+  if (InternalFSBL) {
+    InternalFSBL.Clients.LinkerClient.subscribe(intentType, callback);
   }
 }
