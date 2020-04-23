@@ -10,4 +10,5 @@ module.exports = {
     '!**/node_modules/**',
   ],
   preset: 'ts-jest/presets/default',
+  setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
 };

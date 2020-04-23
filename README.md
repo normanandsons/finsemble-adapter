@@ -78,38 +78,18 @@ export const DemoMinimal: React.FC = () => {
   );
 };
 
-export const DemoStandard: React.FC = () => {
+export const DemoCustom: React.FC = () => {
   return (
     <FSBLLoader
       fallback={<div>LOADING</div>}
       onReady={() => {
         // tslint:disable-next-line: no-console
         console.log(
-          'Finsemble is ready, but in this case we cannot be sure about the header'
+          'Finsemble is ready, but in this case we cannot be sure about the header, and we will not definitely trigger a resize event'
         );
       }}
       forceResize={false}
-      waitForChromeHeader={false}
-    >
-      <div>Your App Goes Here</div>
-    </FSBLLoader>
-  );
-};
-
-export const DemoForTesting: React.FC = () => {
-  return (
-    <FSBLLoader
-      fallback={<div>LOADING</div>}
-      onReady={() => {
-        // tslint:disable-next-line: no-console
-        console.log(
-          'You can override how the component looks for finsemble, or how it looks got the header'
-        );
-      }}
-      forceResize={false}
-      waitForChromeHeader={false}
-      isFinsembleAvailable={() => 'FSBL' in window}
-      finsembleHeaderSelector="#FSBLHeader"
+      waitForFinsembleToolbar={false}
     >
       <div>Your App Goes Here</div>
     </FSBLLoader>
