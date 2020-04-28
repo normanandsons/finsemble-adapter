@@ -79,4 +79,11 @@ export function catchIntent<T>(
   if (InternalFSBL) {
     InternalFSBL.Clients.LinkerClient.subscribe(intentType, callback);
   }
+  return {
+    unsubscribe: () => {
+      if (InternalFSBL) {
+        InternalFSBL.Clients.LinkerClient.unsubscribe(intentType, callback);
+      }
+    },
+  };
 }

@@ -7,6 +7,10 @@ declare type FSBL = {
         dataType: string,
         callback: (data: any, fsblEvent: any) => void
       ) => void;
+      unsubscribe: (
+        dataType: string,
+        callback: (data: any, fsblEvent: any) => void
+      ) => void;
     };
   };
 };
