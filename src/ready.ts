@@ -45,7 +45,9 @@ const fsblReadyAdapterDefaults: FsblReadyAdapterDefaults = {
   waitForFinsembleToolbar: true,
 };
 
-export function fsblReadyAdapter(options: FsblReadyAdapterOptions) {
+export function fsblReadyAdapter(
+  options: FsblReadyAdapterOptions
+): FsblReadyAdapter {
   const {
     forceResize,
     createMutationObserver,
@@ -86,6 +88,8 @@ export function fsblReadyAdapter(options: FsblReadyAdapterOptions) {
   }
   if (isFinsembleAvailable()) {
     isFsblReady = false;
+    // FSBL might be undefined, but we've already checked above
+    // @ts-ignore
     InternalFSBL.addEventListener('onReady', fsblOnReadyCallback);
   }
   return {
