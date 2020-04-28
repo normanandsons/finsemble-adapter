@@ -74,7 +74,7 @@ export function raiseIntent<T>(
  */
 export function catchIntent<T>(
   intentType: FDC3IntentType,
-  callback: (payload: T) => void
+  callback: (payload: T, fsblEvent: any) => void
 ) {
   if (InternalFSBL) {
     InternalFSBL.Clients.LinkerClient.subscribe(intentType, callback);

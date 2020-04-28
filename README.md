@@ -41,22 +41,25 @@ This function accepts any spec-complient `intentType` and `contextData`, and the
 **Note** We don't support the third parameter for `raiseIntent` from the FDC3 specification which is intended to raise the intent with a _specific_ application, since we drop down to the Finsemble `LinkerClient` under the hood which does not have that capability.
 
 ```ts
-catchIntent(intentType: FDC3IntentType, callback: (payload: FDC3Context) => void);
+catchIntent(intentType: FDC3IntentType, callback: (payload: FDC3Context, fsblData: any) => void);
 ```
 
 Theoretically according to the FDC3 specification, matching up `raiseIntent` to an application capable of handling it should be done by configuring an application with an "App Discovery" server. This library side-steps this issue by allowing applications to imperatively catch intents raised elsewhere.
 
+We also include the Finsemble event data as a second parameter to the callback, this allows you to inspect, for example, where the intent was raised, which is very useful if you don't want a
+window to respond to it's own intents.
+
 ```ts
-broadcastInstrument(payload: FDC3Instrument);
+broadcastInstrument(payload: FaInstrument);
 ```
 
 A shortcut method on top of `raiseIntent` for raising a `ViewInstrument` intent with an `FDC3Instrument` payload.
 
 ```ts
-subscribeInstrument(callback(payload: FDC3Context) => void);
+subscribeInstrument(callback(payload: FaInstrument, fsblEvent: any) => void, allowFromSelf = false);
 ```
 
-A shortcut method on top of `catchIntent` for catching a `ViewInstrument` intent.
+A shortcut method on top of `catchIntent` for catching a `ViewInstrument` intent. The `fsblEvent` is also included, but for convience this method will default to disallowing a window to catch it's own intents.
 
 ## Framework Adapters
 

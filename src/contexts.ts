@@ -15,6 +15,7 @@ export declare type FDC3Context = {
   id: {
     [key: string]: string;
   };
+  [key: string]: any;
 };
 
 export declare type FDC3Contact = FDC3Context & {
