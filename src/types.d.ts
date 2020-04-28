@@ -1,4 +1,6 @@
-declare type FSBL = {
+import { WindowIdentifier, FaShowWindowParams } from './window';
+
+export declare type FSBL = {
   addEventListener: (eventType: string, callback: () => void) => void;
   Clients: {
     LinkerClient: {
@@ -12,7 +14,32 @@ declare type FSBL = {
         callback: (data: any, fsblEvent: any) => void
       ) => void;
     };
+    LauncherClient: {
+      showWindow: (
+        windowIdentifier: WindowIdentifier,
+        params: FaShowWindowParams,
+        cb?: (err: any, winData: any) => void
+      ) => void;
+    };
+    RouterClient: {
+      addListener: (
+        channel: string,
+        cb: (err: any, response: any) => void
+      ) => void;
+      removeListener: (
+        channel: string,
+        cb: (err: any, response: any) => void
+      ) => void;
+      transmit: (channel: string, event: any) => void;
+    };
+    WindowClient: {
+      getSpawnData: () => any;
+    };
   };
 };
 
-declare const FSBL: FSBL;
+export declare const FSBL: FSBL;
+
+interface Window {
+  FSBL: FSBL;
+}
