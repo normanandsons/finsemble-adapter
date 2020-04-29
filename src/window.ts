@@ -21,6 +21,8 @@ export declare type WindowIdentifier = {};
 // Standard Finsemble params for showWindow
 export declare type ShowWindowParams = {
   data?: any;
+  spawnIfNotFound?: boolean;
+  [key: string]: any;
 };
 
 // Additional params for showWindow
@@ -30,7 +32,10 @@ export declare type FaShowWindowParams = ShowWindowParams & {
 
 export function showWindow(
   windowIdentifier: WindowIdentifier,
-  params: FaShowWindowParams = { waitForAppReady: false },
+  params: FaShowWindowParams = {
+    waitForAppReady: false,
+    spawnIfNotFound: true,
+  },
   cb?: (err: any, winData: any) => void
 ) {
   if (!InternalFSBL) {
@@ -69,6 +74,10 @@ export function showWindow(
     actualCallback = (err, winData) => {
       cbErr = err;
       cbWinData = winData;
+      // If we get a miniaml winData object, the window was already open ...
+      if (!winData.parentUUID && cb) {
+        cb(err, winData);
+      }
     };
   }
   return InternalFSBL.Clients.LauncherClient.showWindow(
@@ -76,14 +85,6 @@ export function showWindow(
     actualParams,
     actualCallback
   );
-}
-
-export function needsAppStartCallback() {
-  if (!InternalFSBL) {
-    return false;
-  }
-  const data = InternalFSBL.Clients.WindowClient.getSpawnData();
-  return !!data.faAppStartTopic;
 }
 
 export function appStartCallback() {
