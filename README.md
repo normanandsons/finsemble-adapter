@@ -1,10 +1,10 @@
 # NORMAN & SONS Finsemble Adapter
 
-This adapter for finsemble has the following main purposes:
+The NORMAN & SONS Finsemble library provides a few things that we need again and again on Finsemble projects:-
 
-- Making it easy to continue to support the browser as a target for deployment.
-- Convenience methods for broadcasting and subscribing to FDC3 Intent-compliant messages.
-- Providing adapters for specific frameworks (i.e. React and Angular) to respond to Finsemble loading events.
+1. Convenience methods to make browser deployment of Finsemble applications more straightforward.
+2. Convenience methods for broadcasting and subscribing to FDC3 messages.
+3. React and Angular adapters to make waiting for FSBL to be ready (and for the FSBL header to be injected) more straightforward.
 
 ## Installation and Usage
 
@@ -36,9 +36,9 @@ raiseIntent(FDC3IntentType.ViewInstrument, instrument);
 raiseIntent(intentType: FDC3IntentType, payload: FDC3Context);
 ```
 
-This function accepts any spec-complient `intentType` and `contextData`, and there are also TypeScript overloads to help with intent and context pairings as specified by FDC3 (e.g, `ViewInstrument` and `ViewQuote` are both acceptable intents for an `FDC3Instrument`).
+This function accepts any spec-complient `intentType` and `payload`, and there are also TypeScript overloads to help with intent and context pairings as specified by FDC3 (e.g, `ViewInstrument` and `ViewQuote` are both acceptable intents for an `FDC3Instrument`).
 
-**Note** We don't support the third parameter for `raiseIntent` from the FDC3 specification which is intended to raise the intent with a _specific_ application, since we drop down to the Finsemble `LinkerClient` under the hood which does not have that capability.
+**Note** We don't support the third parameter for `raiseIntent` from the FDC3 specification which is intended to raise the intent with a _specific_ application, since we drop down to the Finsemble `LinkerClient` under the hood which does not support that capability yet.
 
 ```ts
 catchIntent(intentType: FDC3IntentType, callback: (payload: FDC3Context, fsblData: any) => void);
@@ -65,7 +65,7 @@ A shortcut method on top of `catchIntent` for catching a `ViewInstrument` intent
 
 ### React
 
-We provide a React adapter to make waiting for FSBL to be ready and for the FSBL header to be injected straightforward. As with the above methods, this is all "safe" to use when running in a browser - it will have no effect.
+We provide a React adapter to make waiting for FSBL to be ready and for the FSBL header to be injected straightforward. As with the above methods, this is "safe" to use when running in a browser - it will have no effect.
 
 Since this library may be used without React, you will need to import the adapter file directly, it is not exported with the main module.
 
