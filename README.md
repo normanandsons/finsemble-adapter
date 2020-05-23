@@ -1,10 +1,9 @@
 # NORMAN & SONS Finsemble Adapter
 
-The NORMAN & SONS Finsemble library provides a few things that we need again and again on Finsemble projects:-
+The NORMAN & SONS Finsemble library provides a few useful things for Finsemble projects:-
 
-1. Convenience methods to make browser deployment of Finsemble applications more straightforward.
-2. Convenience methods for broadcasting and subscribing to FDC3 messages.
-3. React and Angular adapters to make waiting for FSBL to be ready (and for the FSBL header to be injected) more straightforward.
+1. Methods for publishing and subscribing to FDC3 messages that wrap a test for Finsemble (to reduce the code complexity of Finsemble-enabled apps that must work both when running in a Finsemble "desktop agent" and stand-alone in a browser).
+2. A React application wrapper that waits for Finsemble to load (and for the Finsemble to inject the header) before initializing the applicaiton. (Finsemble's onready event fires before the header is injected.)
 
 ## Installation and Usage
 
@@ -44,7 +43,7 @@ This function accepts any spec-complient `intentType` and `payload`, and there a
 catchIntent(intentType: FDC3IntentType, callback: (payload: FDC3Context, fsblData: any) => void);
 ```
 
-Theoretically according to the FDC3 specification, matching up `raiseIntent` to an application capable of handling it should be done by configuring an application with an "App Discovery" server. This library side-steps this issue by allowing applications to imperatively catch intents raised elsewhere.
+According to the FDC3 specification, matching up `raiseIntent` to an application capable of handling it should be done by referencing an "App Discovery" service. This library side-steps this issue by allowing applications to imperatively catch intents raised elsewhere.
 
 We also include the Finsemble event data as a second parameter to the callback, this allows you to inspect, for example, where the intent was raised, which is very useful if you don't want a
 window to respond to it's own intents.

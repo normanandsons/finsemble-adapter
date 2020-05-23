@@ -67,7 +67,9 @@ export function raiseIntent<T>(
 /**
  * Catch a raised intent
  *
- * Note that this is added to avoid having to use any back-end App Discovery service, which would theoretically connect the raising of intents to applications that have been configured to accept them.
+ * Note that this is added to avoid having to use any back-end App Discovery service, 
+ * which would theoretically connect the raising of intents to applications that have 
+ * been configured to accept them.
  *
  * @param intentType The type of Intent to catch when it is raised.
  * @param callback The callback which will be given the payload of a raised intent.
