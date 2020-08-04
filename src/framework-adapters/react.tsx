@@ -35,7 +35,6 @@ export class FSBLLoader extends Component<FSBLLoaderProps, FSBLLoaderState> {
     this.state = {
       finsembleIsReady: false,
     };
-    this.readyAdapter.onFsblReady(this.onReady);
   }
 
   onReady = () => {
@@ -43,6 +42,10 @@ export class FSBLLoader extends Component<FSBLLoaderProps, FSBLLoaderState> {
       this.props.onReady();
     });
   };
+
+  componentDidMount() {
+    this.readyAdapter.onFsblReady(this.onReady);
+  }
 
   render() {
     const { children, fallback } = this.props;
