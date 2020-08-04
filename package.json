@@ -1,6 +1,6 @@
 {
-  "name": "finsemble-adapter",
-  "version": "0.1.0",
+  "name": "@normanandsons/finsemble-adapter",
+  "version": "0.0.1",
   "description": "Finsemble Adapter for HTML5 client applications",
   "main": "dist/index.js",
   "scripts": {
