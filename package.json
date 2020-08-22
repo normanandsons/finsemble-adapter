@@ -1,7 +1,7 @@
 {
-  "name": "finsemble-adapter",
+  "name": "finsemble",
   "version": "0.1.0",
-  "description": "Finsemble Adapter for HTML5 client applications",
+  "description": "NORMAN & SONS library for Finsemble enterprise web application development",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm-run-all -s build:clean build:compile",
