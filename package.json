@@ -1,5 +1,5 @@
 {
-  "name": "@normanandsons/finsemble",
+  "name": "@normanandsons/finsemble-adapter",
   "version": "0.1.0",
   "description": "NORMAN & SONS library for enterprise Finsemble web application development",
   "main": "dist/index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.normanandsons.com:normans/finsemble-adapter.git"
+    "url": "https://github.com/normanandsons/finsemble-adapter.git"
   },
   "keywords": [
     "finsemble",
     "electron",
     "react"
   ],
-  "author": "Pete Otaqui <pete.otaqui@normanandsons.com>",
+  "author": "Norman <norman@normanandsons.com>",
   "license": "Apache-2.0",
   "devDependencies": {
     "@types/enzyme": "^3.10.5",
