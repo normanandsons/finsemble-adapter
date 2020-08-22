@@ -1,9 +1,10 @@
-# NORMAN & SONS Finsemble Adapter
+# NORMAN & SONS Finsemble Library
 
 The NORMAN & SONS Finsemble library provides a few useful things for Finsemble projects:-
 
-1. Methods for publishing and subscribing to FDC3 messages that wrap a test for Finsemble (to reduce the code complexity of Finsemble-enabled apps that must work both when running in a Finsemble "desktop agent" and stand-alone in a browser).
-2. A React application wrapper that waits for Finsemble to load (and for the Finsemble to inject the header) before initializing the applicaiton. (Finsemble's onready event fires before the header is injected.)
+1. Finsemble-enabled web apps often need to work both in Finsemble and in a browser. The library includes methods for publishing and subscribing to FDC3 messages that wrap a test for Finsemble (to reduce code complexity of applications that constantly having to test for Finsemble).
+
+2. Finsemble's onready event fires before the header is injected. This can cause layout problems in web applicaitons. The library includes a wrapper that waits for Finsemble to inject the header before initializing the applicaiton.
 
 ## Installation and Usage
 
