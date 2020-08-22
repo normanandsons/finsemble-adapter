@@ -1,7 +1,7 @@
 {
-  "name": "finsemble",
+  "name": "@normanandsons/finsemble",
   "version": "0.1.0",
-  "description": "NORMAN & SONS library for Finsemble enterprise web application development",
+  "description": "NORMAN & SONS library for enterprise Finsemble web application development",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm-run-all -s build:clean build:compile",
