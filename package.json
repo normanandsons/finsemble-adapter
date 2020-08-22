@@ -19,7 +19,7 @@
     "react"
   ],
   "author": "Pete Otaqui <pete.otaqui@normanandsons.com>",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@types/enzyme": "^3.10.5",
     "@types/enzyme-adapter-react-16": "^1.0.6",
