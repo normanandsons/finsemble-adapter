@@ -11,7 +11,7 @@ The NORMAN & SONS Finsemble library provides a few useful things for Finsemble p
 Install by running:
 
 ```bash
-npm install finsemble-adapter
+npm install @normanandsons/finsemble-adapter
 ```
 
 Import the core functions into your project:
