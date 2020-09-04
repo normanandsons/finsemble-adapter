@@ -35,6 +35,9 @@ export class FSBLLoader extends Component<FSBLLoaderProps, FSBLLoaderState> {
     this.state = {
       finsembleIsReady: false,
     };
+  }
+
+  componentDidMount(): void {
     this.readyAdapter.onFsblReady(this.onReady);
   }
 
