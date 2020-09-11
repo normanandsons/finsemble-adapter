@@ -58,8 +58,8 @@ export declare type FDC3Position = FDC3Context & {
   id: {
     positionId: string;
   };
-  holding: number;
-  instrument: FDC3Instrument;
+  holding?: number;
+  instrument?: FDC3Instrument;
 };
 
 export declare type FDC3Portfolio = FDC3Context & {

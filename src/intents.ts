@@ -18,6 +18,7 @@ export enum FDC3IntentType {
   ViewNews = 'ViewNews',
   ViewInstrument = 'ViewInstrument',
   ViewAnalysis = 'ViewAnalysis',
+  ViewPosition = 'ViewPosition',
 }
 
 export function raiseIntent(
@@ -46,6 +47,11 @@ export function raiseIntent(
 export function raiseIntent(
   intentType: FDC3IntentType.ViewAnalysis,
   payload: FDC3Instrument | FDC3Organization | FDC3Portfolio,
+  applicationName?: string
+): void;
+export function raiseIntent(
+  intentType: FDC3IntentType.ViewPosition,
+  payload: FDC3Position,
   applicationName?: string
 ): void;
 export function raiseIntent<T>(

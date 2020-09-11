@@ -78,6 +78,19 @@ subscribeInstrument(callback(payload: FaInstrument, fsblEvent: any) => void, all
 A shortcut method on top of `catchIntent` for catching a `ViewInstrument` intent. The `fsblEvent` is also included, but 
 for convenience, this method will default to disallowing a window to catch it's own intents.
 
+```ts
+broadcastPosition(payload: FaPosition);
+```
+
+A shortcut method on top of `raiseIntent` for raising a `ViewPosition` intent with an `FDC3Position` payload.
+
+```ts
+subscribePosition(callback(payload: FaPosition, fsblEvent: any) => void, allowFromSelf = false);
+```
+
+A shortcut method on top of `catchIntent` for catching a `ViewPosition` intent. The `fsblEvent` is also included, but 
+for convenience, this method will default to disallowing a window to catch it's own intents.
+
 ## Framework Adapters
 
 ### React
