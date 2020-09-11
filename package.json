@@ -1,6 +1,6 @@
 {
   "name": "@normanandsons/finsemble-adapter",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "NORMAN & SONS library for enterprise Finsemble web application development",
   "main": "dist/index.js",
   "scripts": {
